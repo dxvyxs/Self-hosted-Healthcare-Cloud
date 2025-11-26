@@ -8,7 +8,7 @@ Key Features:
   - Secure session management
 
 - Secure Authentication
-  - Password hashing using PHP's `password_hash()` and `password_verify()`
+  - Password hashing using PHP's password_hash() and password_verify()
   - Session-based authentication
   - Automatic role-based redirection
 
@@ -26,23 +26,23 @@ Key Features:
 
 User Roles & Access:
 
-Doctor (`doctordesk.php`)
+Doctor (doctordesk.php)
 - Advanced dashboard with file categorization
 - View all uploaded files with category tags
 - Download files directly
 - Modern, professional UI
 
-Nurse (`nursedesk.php`)
+Nurse (nursedesk.php)
 - Clean, medical-themed interface
 - File upload and viewing capabilities
 - Simple file management
 
-Receptionist (`receptionistdesk.php`)
+Receptionist (receptionistdesk.php)
 - Basic file management interface
 - Upload and view personal files
 - Streamlined dashboard
 
-Admin (`index.php`)
+Admin (index.php)
 - Administrative overview
 - Access to all system files
 - User management capabilities
@@ -50,29 +50,29 @@ Admin (`index.php`)
 Technical Architecture:
 
 Database Structure
-- **Users Table**: `losers` (stores user credentials with hashed passwords)
-- **Role-specific Tables**: `doctor`, `nurse`, `receptionist` (store uploaded file metadata)
-- **File Storage**: Local `uploads/` directory
+- Users Table:  (stores user credentials with hashed passwords)
+- Role-specific Tables: doctor, nurse, receptionist (store uploaded file metadata)
+- File Storage: Local uploads/ directory
 
 Security Implementation
-- **ZTNA Guard**: IP-based access restriction (`ztnaguard.php`)
-- **RBAC System**: Role-based permissions (`rbac.php`)
-- **Session Management**: Secure session handling across all pages
-- **Input Validation**: Comprehensive form validation and SQL injection prevention
+- ZTNA Guard: IP-based access restriction (ztnaguard.php)
+- RBAC System: Role-based permissions (rbac.php)
+- Session Management: Secure session handling across all pages
+- Input Validation: Comprehensive form validation and SQL injection prevention
 
 Setup & Installation:
 
 1. Database Configuration
-   - Create database `mycloud`
+   - Create database mycloud
    - Update credentials in all PHP files:
-     $conn = new mysqli("localhost", "phpuser", "jerry@006", "mycloud");
+     $conn = new mysqli("localhost", "phpuser", "<password>", "mycloud");
   
 2. User Setup
-   - Run `hash.php` to create initial users with hashed passwords
+   - Run hash.php to create initial users with hashed passwords
    - Default users: doctor, nurse, receptionist
 
 3. Directory Permissions
-   - Ensure `uploads/` directory exists and is writable
+   - Ensure uploads/ directory exists and is writable
 
 Security Notes:
 
@@ -84,9 +84,9 @@ Security Notes:
 
 Access Flow:
 
-1. User logs in through `login.php`
-2. System validates credentials against `losers` table
-3. User redirected to role-specific dashboard based on `role` field
+1. User logs in through login.php
+2. System validates credentials against table
+3. User redirected to role-specific dashboard based on role field
 4. Files are stored in role-specific database tables
 5. ZTNA guard restricts access to authorized IP ranges only
 
